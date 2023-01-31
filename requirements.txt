@@ -1,2 +1,8 @@
-PyNite
-prettytable
+PyNite~=1.4.2
+prettytable~=3.3.0
+
+setuptools~=63.2.0
+matplotlib~=3.5.2
+numpy~=1.22.3
+pandas~=1.4.2
+scipy~=1.8.0

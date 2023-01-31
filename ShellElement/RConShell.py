@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from pynite import LoadCombo
+from PyNite.LoadCombo import LoadCombo
 from ShellElement.RebarPlies import Ply
 from ShellElement.Shells import Shell
 import ShellElement.Scharts as Sch
@@ -83,7 +83,7 @@ class ShellElem:
         :return:
         """
         # Создает новую комбинацию
-        new_combo = LoadCombo.LoadCombo(name, combo_type, factors)
+        new_combo = LoadCombo(name, combo_type, factors)
         # Добавляет комбинацию к словарю
         self.loadcombos[name] = new_combo
 

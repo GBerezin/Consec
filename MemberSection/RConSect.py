@@ -1,5 +1,5 @@
 import numpy as np
-from pynite.LoadCombo import LoadCombo
+from PyNite.LoadCombo import LoadCombo
 from MemberSection.Rebars import Rebar
 from MemberSection.Shapes import Rectangle
 import Sigma as Sig
