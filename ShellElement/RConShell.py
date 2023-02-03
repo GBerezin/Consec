@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from PyNite.LoadCombo import LoadCombo
+from pynite.LoadCombo import LoadCombo
 from ShellElement.RebarPlies import Ply
 from ShellElement.Shells import Shell
 import ShellElement.Scharts as Sch
