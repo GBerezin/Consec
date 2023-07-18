@@ -14,11 +14,15 @@ class Calculation:
         :return: Вектор деформаций
         """
         try:
+            dr =d
+            fr = f
             u = np.linalg.solve(d, f)
         except np.linalg.LinAlgError as var1:
             d = np.eye(3)
             fi = np.array(([0.0, 0.0, 0.0]))
             u = np.linalg.solve(d, fi)
             print('Решение невозможно:', var1)
+            print(dr)
+            print(fr)
             quit()
         return u
