@@ -155,8 +155,7 @@ class FrameSec:
         vsigmac = np.vectorize(Sig.sigmac)
         vsigmas = np.vectorize(Sig.sigmas)
         s_b = [self.c_p['Rb'] * gb3, self.c_p['Rb'] * 0.6 * gb3, self.c_p['Rbt'] * 0.6 * kt, self.c_p['Rbt'] * kt]
-        e_b = [self.c_p['eb2'], self.c_p['eb0'], s_b[1] / self.c_p['E'], s_b[2] / self.c_p['E'], self.c_p['ebt0'],
-               self.c_p['ebt2']]
+        e_b = [self.c_p['eb2'], self.c_p['eb0'], s_b[1] / self.c_p['E'], s_b[2] / self.c_p['E'] * kt, self.c_p['ebt0'] * kt, self.c_p['ebt2'] * kt]
         xbi = self.c_g[0]
         ybi = self.c_g[1]
         abi = self.c_g[2]

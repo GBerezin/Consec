@@ -130,8 +130,8 @@ class ShellElem:
         v0_1 = np.ones(k) * v  # Коэффициенты Пуассона в слоях бетона
         # Параметры диаграммы состояния бетона
         s_b = [self.c_p['Rb'] * gb3, self.c_p['Rb'] * 0.6 * gb3, self.c_p['Rbt'] * 0.6 * kt, self.c_p['Rbt'] * kt]
-        e_b = [self.c_p['eb2'], self.c_p['eb0'], s_b[1] / self.c_p['E'], s_b[2] / self.c_p['E'], self.c_p['ebt0'],
-               self.c_p['ebt2']]
+        e_b = [self.c_p['eb2'], self.c_p['eb0'], s_b[1] / self.c_p['E'], s_b[2] / self.c_p['E'] * kt , self.c_p['ebt0'] * kt,
+               self.c_p['ebt2'] * kt]
         eb = self.c_p['E']  # Начальный модуль упругости бетона, МПа
         sigc = vsigmac(e_b, *e_b, *s_b, eb)  # Напряжения в бетонных слоях
         eb_ = np.linspace(eb, eb, k)  # Начальные модули упругости в слоях бетона, МПа
