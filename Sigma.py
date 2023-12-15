@@ -1,4 +1,4 @@
-def sigmac(eps, eb2, eb0, eb1, ebt1, ebt0, ebt2, rb, sb1, sbt1, rbt, e):
+def sigmac(eps, eb2, eb0, eb1, ebt1, ebt0, ebt2, rb, sb1, sbt1, rbt, e, k_rc):
     """
     Диаграмма состояния бетона.
 
@@ -17,7 +17,9 @@ def sigmac(eps, eb2, eb0, eb1, ebt1, ebt0, ebt2, rb, sb1, sbt1, rbt, e):
     :return: Напряжение, МПа
     """
 
-    if eb0 >= eps >= eb2:
+    rb = rb * k_rc
+    sb1 = sb1 * k_rc
+    if eb0 >= eps:
         s = rb
     elif eb0 < eps < eb1:
         s = ((1 - sb1 / rb) * (eps - eb1) / (eb0 - eb1) + sb1 / rb) * rb
@@ -27,7 +29,7 @@ def sigmac(eps, eb2, eb0, eb1, ebt1, ebt0, ebt2, rb, sb1, sbt1, rbt, e):
         s = e * eps
     elif ebt1 < eps < ebt0 and rbt != 0.0:
         s = ((1 - sbt1 / rbt) * (eps - ebt1) / (ebt0 - ebt1) + sbt1 / rbt) * rbt
-    elif ebt0 <= eps <= ebt2:
+    elif ebt0 <= eps:
         s = rbt
     else:
         s = 0.0
@@ -49,11 +51,11 @@ def sigmas(eps, esc2, esc0, es0, es2, rsc, rs, e):
     :return: Напряжение, МПа
     """
 
-    if esc0 >= eps >= esc2:
+    if esc0 >= eps:
         s = rsc
     elif esc0 < eps < es0:
         s = e * eps
-    elif es0 <= eps <= es2:
+    elif es0 <= eps:
         s = rs
     else:
         s = 0.0

@@ -133,7 +133,7 @@ class ShellElem:
         e_b = [self.c_p['eb2'], self.c_p['eb0'], s_b[1] / self.c_p['E'], s_b[2] / self.c_p['E'] * kt , self.c_p['ebt0'] * kt,
                self.c_p['ebt2'] * kt]
         eb = self.c_p['E']  # Начальный модуль упругости бетона, МПа
-        sigc = vsigmac(e_b, *e_b, *s_b, eb)  # Напряжения в бетонных слоях
+        sigc = vsigmac(e_b, *e_b, *s_b, eb, 1)  # Напряжения в бетонных слоях
         eb_ = np.linspace(eb, eb, k)  # Начальные модули упругости в слоях бетона, МПа
         eb = np.stack((eb_, eb_), axis=-1)  # Начальные модули упругости в слоях бетона по главным направлениям, МПа
         vsigmas = np.vectorize(Sgm.sigmas)  # Векторизованная функция диаграммы состояния арматурной стали

@@ -80,7 +80,7 @@ class Result:
         print(ptr)
         arge = [eb, es, xbi, ybi, np.array(xsj), np.array(ysj), np.array(asj), c_g[4]]
         args = [sb, ss, xbi, ybi, np.array(xsj), np.array(ysj), np.array(asj), c_g[4]]
-        sigmac = self.vsigmac(e_b, *e_b, *s_b, c_p['E'])  # Напряжения в бетоне для диаграммы состояния
+        sigmac = self.vsigmac(e_b, *e_b, *s_b, c_p['E'], 1)  # Напряжения в бетоне для диаграммы состояния
         Cch.loads('MemberSection/member_section.png')  # Правило знаков нагрузок
         Cch.strainstress(e_b, sigmac, self.section.grade)  # Диаграмма состояния бетона
         rbrs = {}  # Словарь арматурных стержней с уникальными классами

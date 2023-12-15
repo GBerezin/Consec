@@ -191,7 +191,7 @@ class FrameSec:
         d = self.d(abi, xbi, ybi, ebi, vbi) + self.d(np.array(asj), np.array(xsj), np.array(ysj), np.array(esj), vsj)
         u = Calculation.calc(d, f)  # Вектор общих деформаций
         eb = zb.dot(u)  # Деформации бетона
-        sb = vsigmac(eb, *e_b, *s_b, ebi)  # Напряжения в бетоне
+        sb = vsigmac(eb, *e_b, *s_b, ebi, 1)  # Напряжения в бетоне
         es = zs.dot(u)  # Деформации арматуры
         ss = np.zeros(n_s)  # Напряжения в арматуре
         for i in range(n_s):
@@ -205,7 +205,7 @@ class FrameSec:
             d = self.d(abi, xbi, ybi, ebi, vb) + self.d(np.array(asj), np.array(xsj), np.array(ysj), np.array(esj), vs)
             u_f = Calculation.calc(d, f)  # Вектор общих деформаций
             eb = zb.dot(u_f)  # Деформации бетона
-            sb = vsigmac(eb, *e_b, *s_b, ebi)  # Напряжения в бетоне
+            sb = vsigmac(eb, *e_b, *s_b, ebi, 1)  # Напряжения в бетоне
             es = zs.dot(u_f)  # Деформации арматуры
             ss = np.zeros(n_s)  # Напряжения в арматуре
             for i in range(n_s):

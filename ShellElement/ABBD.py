@@ -93,11 +93,11 @@ class D:
         orientation = 0.5 * np.arctan2(gxy, ee2)  # Угол главного направления 1 от оси X
         k_rc = np.ones(self.k)  # Коэффициент уменьшения прочности бетона из-за поперечного растяжения
         for i in range(0, self.k):
-            if eps1[i] > 0.002:
+            if eps1[i] > 0.002 and eps2[i] < 0:
                 k_rc[i] = 1.0 / (0.8 + 100 * eps1[i])
             else:
                 k_rc[i] = 1.0
-        sb = np.vstack((vsigmac(eps1, *e_b, *s_b, eb_), vsigmac(eps2, *e_b, *s_b, eb_))).transpose().reshape(self.k, 2,
+        sb = np.vstack((vsigmac(eps1, *e_b, *s_b, eb_, 1), vsigmac(eps2, *e_b, *s_b, eb_, k_rc[i]))).transpose().reshape(self.k, 2,
                                                                                                              1)
         vb = self.v_b(sb, eps1, eps2, eb)
         s_xyb = self.sxyb(orientation, sb)
