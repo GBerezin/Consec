@@ -6,7 +6,6 @@ from scipy.interpolate import griddata
 from matplotlib.path import Path
 from matplotlib.patches import PathPatch
 
-plt.style.use('seaborn-whitegrid')
 
 
 def strain2d(eb, es, xbi, ybi, xsj, ysj, asj, ci):

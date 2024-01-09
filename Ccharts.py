@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-plt.style.use('seaborn-whitegrid')
 
 
 def strainstress(x, y, grade):
