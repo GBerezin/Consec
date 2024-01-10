@@ -6,16 +6,19 @@ import pandas as pd
 import os
 import Materials as Mtr
 
-
 class main:
     def __init__(self, master):
         # Свойства материалов
         self.concrete, self.steel = Mtr.materials()
         self.master = master
         self.master.title('Consec')
-        self.master.geometry('250x150+200+150')
+        self.master.geometry('350x150+200+150')
         self.label1 = ttk.Label(self.master)
+        self.label1.config(text="Выбери режим!")
         self.label1.pack()
+        self.label2 = ttk.Label(self.master)
+        self.label2.config(text="Выбери файл!")
+        self.label2.pack()
         self.main_menu = Menu()
         self.file_menu = Menu()
         self.file_menu.add_command(label="Открыть", command=self.open_file)
@@ -37,16 +40,18 @@ class main:
         self.master.mainloop()
 
     def about(self):
-        messagebox.showinfo("О программе", "Г. Березин 2023")
+        messagebox.showinfo("О программе", "Г. Березин 2024")
 
     def help(self):
         os.popen("Consec.chm")
 
     def mode_switch1(self):
         self.label1.config(text="Сечение")
+        self.label2.config(text="Выбери файл!")
 
     def mode_switch2(self):
         self.label1.config(text="Плита")
+        self.label2.config(text="Выбери файл!")
 
     def open_file(self):
         if self.label1.cget("text") == "Сечение":
@@ -54,6 +59,7 @@ class main:
         else:
             f = "s"
         self.filepath = filedialog.askopenfilename(initialdir="*/", title="Выбери файл", filetypes=(("Excel файлы", f + "*.xlsx"), ("все файлы", "*.*")))
+        self.label2.config(text=self.filepath)
 
     def data(self):
         section = pd.read_excel(self.filepath, sheet_name="section")

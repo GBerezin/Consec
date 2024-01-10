@@ -3,7 +3,6 @@
 from ShellElement.RConShell import ShellElem
 import Materials as Mtr
 
-
 def main():
     # Свойства материалов
     concrete, steel = Mtr.materials()

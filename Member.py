@@ -3,12 +3,9 @@
 from MemberSection.RConSect import FrameSec
 import Materials as Mtr
 
-
 def main():
     # Свойства материалов
     concrete, steel = Mtr.materials()
-    print(concrete)
-    print(steel)
 
     # Создание нового прямоугольного жб сечения
     rect = FrameSec(concrete, steel)

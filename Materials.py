@@ -19,7 +19,9 @@ def materials():
     finally:
         concrete = pd.read_sql(f"SELECT * FROM '{'concrete'}';", con, index_col='param', coerce_float=True)
         print(f"Таблица '{'concrete'}' загружена:")
+        print(concrete)
         steel = pd.read_sql(f"SELECT * FROM '{'steel'}';", con, index_col='param', coerce_float=True)
         print(f"Таблица '{'steel'}' загружена:")
+        print(steel)
         con.close()
         return concrete, steel
