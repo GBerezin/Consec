@@ -39,11 +39,11 @@ class D:
         vb = np.ones((self.k, 2))  # Коэффициенты упругости бетона в слоях по главным направлениям
         for i in range(0, self.k):
             if eps1[i] != 0:
-                vb[i, 0] = sb[i][0] / eс[i][0] / eps1[i]
+                vb[i, 0] = (sb[i][0] / eс[i][0] / eps1[i])[0]
             else:
                 vb[i, 0] = 1.0
             if eps2[i] != 0:
-                vb[i, 1] = sb[i][1] / eс[i][1] / eps2[i]
+                vb[i, 1] = (sb[i][1] / eс[i][1] / eps2[i])[0]
             else:
                 vb[i, 1] = 1.0
         return vb
